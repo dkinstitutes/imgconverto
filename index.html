@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Converter and Downloader</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com/css/tailwind.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+  </head>
+  
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="" class="flex items-center">
+          <img src="logo.png" class="h-8 mr-3" alt="image" style="height: 3rem;"/>
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white" style="color: white;"><mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Img converto</mark></span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Privacy</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Copyright</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <body>
+
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white" style="margin: 5px;">Your all in one <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Image Converter</mark> at one place.</h1>
+<p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400" style="margin: 10px;
+text-align: justify;">image formater is all in one image converter tool that allows you to convert your images into different formates with ease.</p>
+
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 22px;"> 
+      <input type="file" id="input-file" class="hidden">
+      <div class="flex flex-col items-center">
+        <label for="input-file" class="w-full mb-4 px-4 py-2 text-center rounded-md border-2 border-dashed border-gray-400 cursor-pointer">
+          <span class="text-gray-400">Choose an image file or a PDF/DOC file</span>
+        </label>
+        <img id="preview-image" style="margin: 10px;">
+        <button id="convert-btn" class="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none">
+          Convert and Download
+        </button>
+        <select id="format-select" class="w-full mt-4 px-4 py-2 text-gray-700 bg-white border-2 border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+          <option value="jpeg">JPEG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WebP</option>
+          <option value="svg">SVG</option>
+          <option value="gif">GIF</option>
+          <option value="pdf">PDF</option>
+          <option value="doc">DOC</option>
+        </select>
+        <p id="error-message" class="hidden text-red-500 mt-4">Invalid file type. Please choose an image file or a PDF/DOC file.</p>
+        <p id="success-message" class="hidden text-green-500 mt-4">Download complete!</p>
+      </div>
+    </div>
+<div style="padding: 8px;">
+<h2 class="text-4xl font-bold dark:text-white">Imgconverto - The Image Conversion Tool for Everyone.</h2>
+<p class="mb-3 text-gray-500 dark:text-gray-400">Imgconverto is a powerful and easy-to-use online tool for converting and editing images. Whether you're a professional photographer, social media manager, or website owner, this tool can help you streamline your workflow and save time. With Imgconverto, you can convert your images to a variety of formats, including JPEG, PNG, GIF, BMP, and TIFF. Simply upload your image and select the desired output format. You can also choose to resize your image, compress it, or perform batch processing on multiple images. One of the key benefits of Imgconverto is its ease of use. You don't need to install any software or have any technical knowledge to use this tool. The interface is user-friendly and easy to use, so you can get started right away.</p>
+<h2 class="text-4xl font-bold dark:text-white">Imgconverto - Image Converter</h2>
+<p class="mb-3 text-gray-500 dark:text-gray-400">Imgconverto supports a wide range of image formats, including JPEG, PNG, GIF, BMP, and TIFF. You can easily convert your images from one format to another, without losing quality or resolution. This feature is great for professional photographers who need to deliver images in specific formats for their clients, or for website owners who want to optimize their images for faster loading times. </p>
+<h2 class="text-4xl font-bold dark:text-white">Batch Processing</h2>
+<p class="mb-3 text-gray-500 dark:text-gray-400">Imgconverto also offers batch processing, which allows you to convert multiple images at once. This is a time-saving feature that's perfect for social media managers who need to process many images for a campaign, or for website owners who have a large number of images to optimize.</p>
+<h2 class="text-4xl font-bold dark:text-white">Image Compression</h2>
+<p class="mb-3 text-gray-500 dark:text-gray-400">Image compression is another useful feature of Imgconverto. This feature allows you to reduce the size of your images without losing quality. This is particularly important for website owners who want to improve their page load times, as larger image sizes can slow down a website.</p>
+<h2 class="text-4xl font-bold dark:text-white">Image Resizing</h2>
+<p class="mb-3 text-gray-500 dark:text-gray-400">Imgconverto also allows you to resize your images. This is a useful feature if you need to adjust the dimensions of your images for social media or website use. You can easily resize your images while maintaining the aspect ratio and image quality.</p>
+<h2 class="text-4xl font-bold dark:text-white">Ease of Use</h2>
+<p class="mb-3 text-gray-500 dark:text-gray-400">One of the biggest advantages of Imgconverto is its ease of use. You don't need to install any software or have any technical knowledge to use this tool. The interface is intuitive and user-friendly, so you can get started right away. In addition, Imgconverto is a versatile and easy-to-use online tool that can help you convert and edit images quickly and efficiently.</p>
+<h2 class="text-4xl font-bold dark:text-white">Few words form developer</h2>
+<p class="mb-3 text-gray-500 dark:text-gray-400">We hope you are using imgconverto in your daily life to convert your images into different fromates. if you are facing any difficulty or encountered any issue in accessing or using this site, feel free to contact us. We'll keep working on fancynamer to provide you the better user experience</p>
+</div>
+    <script>
+const inputFile = document.getElementById('input-file');
+const previewImage = document.getElementById('preview-image');
+const convertBtn = document.getElementById('convert-btn');
+const formatSelect = document.getElementById('format-select');
+
+// Function to generate a unique file name
+function generateUniqueFileName(extension) {
+  const timestamp = new Date().getTime();
+  const randomNum = Math.floor(Math.random() * 1000);
+  return `${timestamp}_${randomNum}.${extension}`;
+}
+
+// Function to rename the file by user file name and website domain name
+function renameFile(fileName) {
+  const url = window.location.href;
+  const domainName = url.split('/')[2];
+  const newFileName = `${fileName}_${domainName}`;
+  return newFileName;
+}
+
+inputFile.addEventListener('change', () => {
+  const file = inputFile.files[0];
+  const reader = new FileReader();
+
+  // Handle errors while reading the file
+  reader.onerror = () => {
+    alert('Failed to read the file.');
+  }
+
+  reader.onload = () => {
+    if (file.type.match(/^image\//) || file.name.match(/\.(pdf|doc)$/i)) {
+      previewImage.src = reader.result;
+      previewImage.classList.remove('hidden');
+    } else {
+      alert('Invalid file type. Please choose an image file or a PDF/DOC file.');
+    }
+  }
+
+  reader.readAsDataURL(file);
+});
+
+convertBtn.addEventListener('click', () => {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  const image = new Image();
+  image.src = previewImage.src;
+
+  // Handle errors while loading the image
+  image.onerror = () => {
+    alert('Failed to load the image.');
+  }
+
+  image.onload = () => {
+    canvas.width = image.width;
+    canvas.height = image.height;
+    context.drawImage(image, 0, 0);
+
+    const extension = formatSelect.value;
+    const originalFileName = inputFile.files[0].name.split('.')[0];
+    const newFileName = renameFile(originalFileName);
+    const downloadLink = document.createElement('a');
+    downloadLink.download = newFileName + "." + extension;
+    downloadLink.href = canvas.toDataURL(`image/${extension}`);
+    downloadLink.click();
+  }
+});
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+  </body>
+</html>
